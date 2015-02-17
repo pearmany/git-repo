@@ -8,8 +8,8 @@ class TestGame < Test::Unit::TestCase
   end
   
   def testGutterGame
-  rollMany(20, 0)
-  assert_equal(0, @g.score())
+    rollMany(20, 0)
+    assert_equal(0, @g.score())
   end
   
   def rollMany(n, pins)
@@ -21,12 +21,8 @@ class TestGame < Test::Unit::TestCase
 end
 
   def testAllOnes
-    @i = 0
-    while @i < 20 do
-    @i += 1
-    @g.roll(1)
-  end
-  assert_equal(20, @g.score())
+    rollMany(20, 1)
+    assert_equal(20, @g.score())
   end
   
 end
