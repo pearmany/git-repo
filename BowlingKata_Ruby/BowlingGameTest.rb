@@ -8,8 +8,10 @@ class TestGame < Test::Unit::TestCase
   end
   
   def testGutterGame
+    @n = 20
+    @pins = 0
   20.times do
-  @g.roll(0)
+  @g.roll(@pins)
   end
   assert_equal(0, @g.score())
   end
