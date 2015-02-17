@@ -3,7 +3,7 @@ require "test/unit"
  
 class Teststart < Test::Unit::TestCase
   
-  def test_start
+  def testGutterGame
   g = Game.new
   g.roll(0)
   assert_equal(0, g.score())
