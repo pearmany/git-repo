@@ -1,3 +1,5 @@
 class Game
 
-end
+  def roll(pins)
+  end
+end #class
