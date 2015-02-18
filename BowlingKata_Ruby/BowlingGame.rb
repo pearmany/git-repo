@@ -7,12 +7,12 @@ class Game
   end
 
   def roll(pins)
-    @score += pins
-    @rolls[@currentRoll +=1] = pins
+    @pins = @score += pins
+    @rolls << @pins
   end
 
   def score
-    @score
-  end
+  @score
+end
   
 end #class
