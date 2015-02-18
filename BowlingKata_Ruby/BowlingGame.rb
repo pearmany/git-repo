@@ -6,12 +6,14 @@ class Game
   end
 
   def roll(pins)
-    @pins = @currentRoll += pins
-    @rolls << @pins
+    @rolls << pins
   end
 
   def score
-  @score = @currentRoll
-end
-  
+    @score = 0
+    @rolls.each do |x|
+    @score += x
+    end
+    @score
+  end
 end #class
