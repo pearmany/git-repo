@@ -1,20 +1,23 @@
 class Game
 
   def initialize
-    @score = 0
     @rolls = []
     @currentRoll = 0
   end
 
   def roll(pins)
-    @score += pins
     @rolls << pins
   end
 
   def score
     @score = 0
-    @rolls.each do |x|
-    @score += x
+    @frame = 0
+    @i = 0
+    
+    while @frame < 10
+    @score += @rolls[@i] + @rolls[@i + 1]
+    @i += 2
+    @frame += 1
     end
     @score
   end
