@@ -2,7 +2,6 @@ class Game
 
   def initialize
     @rolls = []
-    @currentRoll = 0
   end
 
   def roll(pins)
@@ -15,22 +14,38 @@ class Game
     frameIndex = 0
     
     while @frame < 10
-      if @rolls[frameIndex] == 10 #strike
-          @score += 10 + @rolls[frameIndex + 1] + @rolls[frameIndex + 2]
-          frameIndex += 1
+      if isStrike?(frameIndex)
+          @score += 10 + strikeBonus(frameIndex)
+          @frameIndex += 1
       elsif isSpare?(frameindex)
-          @score += 10 + @rolls[frameIndex + 2]
-          frameIndex += 2
+          @score += 10 + spareBonus(frameIndex)
+          @frameIndex += 2
       else
-          @score += @rolls[frameIndex] + @rolls[frameIndex + 1]
-          frameIndex += 2
+          @score += sumOfBallsInFrame(frameIndex)
+          @frameIndex += 2
       end
       @frame += 1
     end
     @score
   end
   
+  def isStrike?(frameIndex)
+    @rolls[@frameIndex] == 10
+  end
+  
+  def sumOfBallsInFrame(frameIndex)
+    @rolls[@frameIndex] + @rolls[@frameIndex + 1]
+  end
+  
+  def spareBonus(frameIndex)
+    @rolls[@frameIndex + 2]
+  end
+  
+  def strikeBonus(frameIndex)
+    @rolls[@frameInex + 1] + @rolls[@frameIndex + 2]
+  end
+  
   def isSpare?(frameIndex)
-    @rolls[frameIndex] + @rolls[frameIndex + 1] == 10
+    @rolls[@frameIndex] + @rolls[@frameIndex + 1] == 10
   end
 end #class
