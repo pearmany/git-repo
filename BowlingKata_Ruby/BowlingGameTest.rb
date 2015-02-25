@@ -27,10 +27,14 @@ end
   end
   
   def testOneSpare
-    @g.roll(5)
-    @g.roll(5) # spare
+    rollSpare()
     @g.roll(3)
     rollMany(17, 0)
     assert_equal(16, @g.score())
+  end
+  
+  def rollSpare()
+    @g.roll(5)
+    @g.roll(5)
   end
 end #class
