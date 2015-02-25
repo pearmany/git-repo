@@ -27,10 +27,11 @@ end
   end
   
   def testOneSpare
-    rollSpare()
+    rollSpare(10) #strike
     @g.roll(3)
-    rollMany(17, 0)
-    assert_equal(16, @g.score())
+    @g.roll(4)
+    rollMany(16, 0)
+    assert_equal(24, @g.score())
   end
   
   def rollSpare()
